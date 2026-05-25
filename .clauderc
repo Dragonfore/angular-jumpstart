@@ -1,0 +1,26 @@
+# Project Context
+
+This is an Angular + NestJS MVP application.
+
+## Stack
+- Frontend: Angular 17+ with Angular Material
+- Backend: NestJS with Prisma ORM
+- Database: PostgreSQL
+
+## Coding Standards
+- Use TypeScript strict mode
+- Follow Angular style guide
+- Use functional components where possible
+- Prefer dependency injection
+- Write unit tests for all services
+- Read and follow the guidelines in `docs/PROJECT_GUIDELINES.md`
+
+## File Structure
+- Frontend features use lazy loading
+- Backend follows NestJS module pattern
+- Keep components small and focused
+
+## Commands
+- Frontend dev: `cd frontend && npm start`
+- Backend dev: `cd backend && npm run start:dev`
+- Database: `docker-compose up -d`

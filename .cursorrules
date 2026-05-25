@@ -1,0 +1,50 @@
+# Angular + NestJS MVP Project
+
+## Technology Stack
+- Frontend: Angular 17+ with Angular Material
+- Backend: NestJS
+- Database: PostgreSQL with Prisma ORM
+- TypeScript throughout
+
+## Code Style
+- Use TypeScript strict mode
+- Follow Angular official style guide
+- Use async/await over promises
+- Prefer const over let
+- Use meaningful variable names
+
+## Architecture
+- Frontend: Feature-based modules with lazy loading
+- Backend: Domain-driven design with NestJS modules
+- Shared types in common directory
+
+## File Naming
+- Angular: kebab-case for files (user-profile.component.ts)
+- NestJS: kebab-case for files (user.service.ts)
+- Classes: PascalCase
+- Interfaces: PascalCase with 'I' prefix (IUser)
+
+## Testing
+- Write unit tests for services
+- Use Jest for backend
+- Use Jasmine/Karma for frontend
+- Aim for 80% coverage
+
+## Database
+- Use Prisma migrations for schema changes
+- Never write raw SQL
+- Use transactions for multi-step operations
+
+## API Design
+- RESTful endpoints
+- Use DTOs for validation
+- Return proper HTTP status codes
+- Include error messages in responses
+
+## Comments
+- Document public APIs
+- Explain complex logic
+- Avoid obvious comments
+
+## Guidelines
+- Read and follow the guidelines in `docs\PRODUCT_GUIDELINES.md`
