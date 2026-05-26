@@ -22,7 +22,7 @@
     {
       "label": "dev:frontend",
       "type": "shell",
-      "command": "npm run dev",
+      "command": "env -u NODE_OPTIONS -u VSCODE_INSPECTOR_OPTIONS npm run dev",
       "options": {
         "cwd": "${workspaceFolder}/frontend"
       },
@@ -34,8 +34,8 @@
         },
         "background": {
           "activeOnStart": true,
-          "beginsPattern": ".",
-          "endsPattern": "(Compiled successfully|Application bundle generation complete|Local:.*4200)"
+          "beginsPattern": "(Building|Changes detected|❯ Building)",
+          "endsPattern": "Local:\\s*http://localhost:4200"
         }
       },
       "presentation": {

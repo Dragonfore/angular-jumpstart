@@ -11,6 +11,7 @@
       "console": "integratedTerminal",
       "restart": true,
       "sourceMaps": true,
+      "autoAttachChildProcesses": false,
       "outFiles": ["${workspaceFolder}/backend/dist/**/*.js"],
       "envFile": "${workspaceFolder}/backend/.env",
       "presentation": {
@@ -24,7 +25,32 @@
       "request": "launch",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}/frontend",
+      "runtimeExecutable": "/snap/bin/chromium",
+      "runtimeArgs": [
+        "--disable-extensions",
+        "--no-first-run",
+        "--no-default-browser-check"
+      ],
+      "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile",
       "preLaunchTask": "dev:frontend",
+      "presentation": {
+        "group": "development",
+        "order": 2
+      }
+    },
+    {
+      "name": "Debug Frontend Browser (Dev)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/frontend",
+      "runtimeExecutable": "/snap/bin/chromium",
+      "runtimeArgs": [
+        "--disable-extensions",
+        "--no-first-run",
+        "--no-default-browser-check"
+      ],
+      "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile",
       "presentation": {
         "group": "development",
         "order": 2
@@ -50,6 +76,13 @@
       "request": "launch",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}/frontend",
+      "runtimeExecutable": "/snap/bin/chromium",
+      "runtimeArgs": [
+        "--disable-extensions",
+        "--no-first-run",
+        "--no-default-browser-check"
+      ],
+      "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile",
       "preLaunchTask": "prod:serve:frontend",
       "presentation": {
         "group": "production",
@@ -60,7 +93,12 @@
   "compounds": [
     {
       "name": "Full Stack Debug (Dev)",
-      "configurations": ["Debug Backend (Dev)", "Debug Frontend (Dev)"],
+      "configurations": [
+        "Debug Backend (Dev)",
+        "Debug Frontend Browser (Dev)"
+      ],
+      "preLaunchTask": "dev:frontend",
+      "stopAll": true,
       "presentation": {
         "group": "development",
         "order": 3
@@ -68,7 +106,10 @@
     },
     {
       "name": "Full Stack (Production)",
-      "configurations": ["Backend (Production)", "Frontend (Production)"],
+      "configurations": [
+        "Backend (Production)",
+        "Frontend (Production)"
+      ],
       "presentation": {
         "group": "production",
         "order": 3
