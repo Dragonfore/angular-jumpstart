@@ -1,0 +1,78 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Backend (Dev)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start:debug"],
+      "cwd": "${workspaceFolder}/backend",
+      "console": "integratedTerminal",
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/backend/dist/**/*.js"],
+      "envFile": "${workspaceFolder}/backend/.env",
+      "presentation": {
+        "group": "development",
+        "order": 1
+      }
+    },
+    {
+      "name": "Debug Frontend (Dev)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/frontend",
+      "preLaunchTask": "dev:frontend",
+      "presentation": {
+        "group": "development",
+        "order": 2
+      }
+    },
+    {
+      "name": "Backend (Production)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/dist/src/main.js",
+      "cwd": "${workspaceFolder}/backend",
+      "preLaunchTask": "build:backend",
+      "envFile": "${workspaceFolder}/backend/.env",
+      "console": "integratedTerminal",
+      "presentation": {
+        "group": "production",
+        "order": 1
+      }
+    },
+    {
+      "name": "Frontend (Production)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/frontend",
+      "preLaunchTask": "prod:serve:frontend",
+      "presentation": {
+        "group": "production",
+        "order": 2
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack Debug (Dev)",
+      "configurations": ["Debug Backend (Dev)", "Debug Frontend (Dev)"],
+      "presentation": {
+        "group": "development",
+        "order": 3
+      }
+    },
+    {
+      "name": "Full Stack (Production)",
+      "configurations": ["Backend (Production)", "Frontend (Production)"],
+      "presentation": {
+        "group": "production",
+        "order": 3
+      }
+    }
+  ]
+}
