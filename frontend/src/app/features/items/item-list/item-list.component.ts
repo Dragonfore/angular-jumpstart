@@ -34,7 +34,6 @@ export class ItemListComponent implements OnInit {
         this.loading.set(false);
       },
       error: () => {
-        this.snackBar.open('Failed to load items', 'Dismiss', { duration: 3000 });
         this.loading.set(false);
       },
     });
@@ -54,9 +53,7 @@ export class ItemListComponent implements OnInit {
         this.snackBar.open('Item deleted', 'Dismiss', { duration: 3000 });
         this.loadItems();
       },
-      error: () => {
-        this.snackBar.open('Failed to delete item', 'Dismiss', { duration: 3000 });
-      },
+      error: () => {},
     });
   }
 }

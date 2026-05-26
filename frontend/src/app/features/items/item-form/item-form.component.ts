@@ -50,7 +50,6 @@ export class ItemFormComponent implements OnInit {
           });
         },
         error: () => {
-          this.snackBar.open('Failed to load item', 'Dismiss', { duration: 3000 });
           this.router.navigate(['/items']);
         },
       });
@@ -80,8 +79,6 @@ export class ItemFormComponent implements OnInit {
         this.router.navigate(['/items']);
       },
       error: () => {
-        const msg = this.isEditMode() ? 'Failed to update item' : 'Failed to create item';
-        this.snackBar.open(msg, 'Dismiss', { duration: 3000 });
         this.submitting.set(false);
       },
     });
