@@ -1,5 +1,16 @@
 <mat-toolbar color="primary">
   <span>Angular Jumpstart</span>
+  <span class="spacer"></span>
+  @if (isLoggedIn$ | async) {
+    <button mat-icon-button (click)="logout()" aria-label="Logout">
+      <mat-icon>logout</mat-icon>
+    </button>
+  } @else {
+    <a mat-button routerLink="/login">
+      <mat-icon>login</mat-icon>
+      Login
+    </a>
+  }
 </mat-toolbar>
 
 <router-outlet />
