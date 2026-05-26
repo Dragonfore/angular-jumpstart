@@ -1,0 +1,45 @@
+<div class="item-list-container">
+  <div class="item-list-header">
+    <h2>Items</h2>
+    <button mat-raised-button color="primary" (click)="navigateToNew()">
+      <mat-icon>add</mat-icon>
+      New Item
+    </button>
+  </div>
+
+  @if (loading()) {
+    <p class="loading-text">Loading items…</p>
+  } @else if (items().length === 0) {
+    <mat-card class="empty-card">
+      <mat-card-content>
+        <p>No items yet. Click <strong>New Item</strong> to create one.</p>
+      </mat-card-content>
+    </mat-card>
+  } @else {
+    <div class="items-grid">
+      @for (item of items(); track item.id) {
+        <mat-card class="item-card">
+          <mat-card-header>
+            <mat-card-title>{{ item.title }}</mat-card-title>
+            <mat-card-subtitle>
+              Status: {{ item.status }} &bull; Created: {{ item.createdAt | date:'mediumDate' }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          @if (item.description) {
+            <mat-card-content>
+              <p>{{ item.description }}</p>
+            </mat-card-content>
+          }
+          <mat-card-actions align="end">
+            <button mat-icon-button color="primary" (click)="editItem(item)" aria-label="Edit item">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteItem(item)" aria-label="Delete item">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  }
+</div>

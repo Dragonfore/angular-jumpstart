@@ -1,0 +1,38 @@
+.item-list-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.item-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    margin: 0;
+    font-size: 1.75rem;
+  }
+}
+
+.loading-text {
+  text-align: center;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.empty-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.item-card {
+  display: flex;
+  flex-direction: column;
+}
